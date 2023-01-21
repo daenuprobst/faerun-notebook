@@ -1,5 +1,5 @@
 import ipywidgets as widgets
-from traitlets import Unicode, Any, Int, Dict, Bool
+from traitlets import Unicode, Any, Int, Dict, Bool, List
 
 # See js/lib/smiles_drawer.js for the frontend counterpart to this file.
 
@@ -21,15 +21,16 @@ class SmilesDrawer(widgets.DOMWidget):
     _model_module = Unicode("faerun-notebook").tag(sync=True)
 
     # Version of the front-end module containing widget view
-    _view_module_version = Unicode("^0.1.5").tag(sync=True)
+    _view_module_version = Unicode("^0.1.6").tag(sync=True)
     # Version of the front-end module containing widget model
-    _model_module_version = Unicode("^0.1.5").tag(sync=True)
+    _model_module_version = Unicode("^0.1.6").tag(sync=True)
 
     # Widget specific property.
     # Widget properties are defined as traitlets. Any property tagged with `sync=True`
     # is automatically synced to the frontend *any* time it changes in Python.
     # It is synced back to Python from the frontend *any* time the model is touched.
     value = Any("").tag(sync=True)
+    weights = List([]).tag(sync=True)
     theme = Unicode("light").tag(sync=True)
     options = Dict({}).tag(sync=True)
     output = Unicode("svg").tag(sync=True)
