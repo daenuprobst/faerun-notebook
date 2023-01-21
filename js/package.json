@@ -1,6 +1,6 @@
 {
   "name": "faerun-notebook",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A widget for visualising *large* data sets.",
   "author": "Daniel Probst",
   "main": "lib/index.js",
