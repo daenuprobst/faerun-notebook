@@ -51,6 +51,7 @@ var SmilesDrawerView = widgets.DOMWidgetView.extend({
     },
     redraw() {
         var value = this.model.get('value');
+        var weights = this.model.get('weights');
         var theme = this.model.get('theme');
         var options = this.model.get('options');
         var border = this.model.get('options');
@@ -60,8 +61,9 @@ var SmilesDrawerView = widgets.DOMWidgetView.extend({
             options['scale'] = 1.25;
         }
 
-        var append = function (value, parent, output, options, border, title = '') {
+        var append = function (value, weights, parent, output, options, border, title = '') {
             var smiDrawer = new SmilesDrawer.SmiDrawer(options);
+
             smiDrawer.draw(value, output, theme, svg => {
                 var container = document.createElement('div');
                 container.setAttribute('class', 'smiles-drawer-container');
@@ -89,21 +91,33 @@ var SmilesDrawerView = widgets.DOMWidgetView.extend({
                 parent.appendChild(container);
             }, e => {
                 console.log(e);
-            });
+            }, weights);
         }
 
         this.el.innerHTML = '';
         if (check.string(value)) {
-            append(value, this.el, this.model.get('output'), options, false);
+            var w = null;
+            if (weights.length > 0) {
+                w = weights[0];
+            }
+            append(value, w, this.el, this.model.get('output'), options, false);
         } else if (check.array.of.array(value)) {
             for (var i = 0; i < value.length; i++) {
+                var w = null;
+                if (weights.length > i) {
+                    w = weights[i];
+                }
                 if (value[i].length === 2) {
-                    append(value[i][1], this.el, this.model.get('output'), options, border, value[i][0]);
+                    append(value[i][1], w, this.el, this.model.get('output'), options, border, value[i][0]);
                 }
             }
         } else if (check.array(value)) {
             for (var i = 0; i < value.length; i++) {
-                append(value[i], this.el, this.model.get('output'), options, border);
+                var w = null;
+                if (weights.length > i) {
+                    w = weights[i];
+                }
+                append(value[i], w, this.el, this.model.get('output'), options, border);
             }
         }
     }

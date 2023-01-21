@@ -1017,6 +1017,11 @@ chownr@^2.0.0:
   resolved "https://registry.npmjs.org/chownr/-/chownr-2.0.0.tgz"
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
+chroma-js@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/chroma-js/-/chroma-js-2.4.2.tgz#dffc214ed0c11fa8eefca2c36651d8e57cbfb2b0"
+  integrity sha512-U9eDw6+wt7V8z5NncY2jJfZa+hUH8XEj8FQHgFJTrUFnJfXYf4Ml4adI2vXZOjqRDpFWtYVWypDfZwnJ+HIR4A==
+
 chrome-trace-event@^1.0.2:
   version "1.0.3"
   resolved "https://registry.npmjs.org/chrome-trace-event/-/chrome-trace-event-1.0.3.tgz"
@@ -3680,10 +3685,12 @@ slash@^3.0.0:
   resolved "https://registry.npmjs.org/slash/-/slash-3.0.0.tgz"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
 
-smiles-drawer@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.npmjs.org/smiles-drawer/-/smiles-drawer-2.0.2.tgz"
-  integrity sha512-qkhnqCBPquC/JKCQ6wIwisw+HQqAqu+nTsvF/135f8jUKTu0rqBcpDr/OagxedZcBrfL9Db1P/T8XQ6JWFFtOQ==
+smiles-drawer@^2.1.7:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/smiles-drawer/-/smiles-drawer-2.1.7.tgz#de3a1cff2fce34035b9487f9ca04b5de0cc57c35"
+  integrity sha512-gApm5tsWrAYDkjbGYQb5OhwIyHvtM2kIO40DfATaOV0DPm0wA63yn4Ow7us27BT49lDdU9busCOPN9fpyonzaA==
+  dependencies:
+    chroma-js "^2.4.2"
 
 sonic-boom@^1.0.2:
   version "1.4.1"
